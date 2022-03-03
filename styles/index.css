@@ -1,0 +1,182 @@
+:root {
+    --text-color: #fff;
+    --primary-theme-color: #abcafa;
+    --secondary-theme-color: #3bbaec;
+    --tertiary-theme-color: #000000;
+    --primary-theme-color-transparent: #2e42667c;
+    --highlight-color: rgb(184, 0, 0);
+    --button-color: transparent;
+    --inverse-theme-color: #fff;
+    --inverse-text-color: #3b79ec;
+    --gradient-color: linear-gradient(to bottom, #2e4266, #3b79ec, #3a91c3 );
+    --all-transitions: all 0.5s;
+    scroll-behavior: smooth;
+  }
+    @font-face{
+        font-family: 'Ailerons', sans-serif; 
+        src: url(../assets/fonts/Ailerons-Regular.otf);
+    }
+
+.body {
+    font-family: 'Ailerons', sans-serif; 
+    background-color: var(--tertiary-theme-color);
+    color: var(--text-color);
+  }
+
+  
+.main{
+    padding-top: 2rem;
+}
+.header {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--tertiary-theme-color);
+    transition: var(--all-transitions);
+}
+
+    .header-nav {
+        padding: 0.5rem 0;
+        transition: var(--all-transitions);
+    }
+
+    .header-nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+    }
+
+    .header-nav__link-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;   
+    }
+
+    .header-nav__logo-container {
+        display: flex;
+        overflow: hidden;
+        height: 2rem;
+    }
+  
+    .header-nav__logo {
+        height: 100%;
+    }
+    
+    .header-nav__menu-icon-container {
+        border: none;
+        padding: 0;
+        background-color: var(--button-color);
+        height: 2.5rem;
+        color: var(--inverse-theme-color);
+        cursor: pointer;
+    }
+
+    .header-nav__menu-icon--scroll {
+        fill: var(--primary-theme-color);
+    }
+
+    .header-nav__menu-icon {
+        height: 100%;
+        fill: var(--inverse-theme-color);
+        
+    }
+
+    .header-nav__link-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: var(--gradient-color);
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: var(--all-transitions);
+    }
+
+    .header-nav__link-list--open {
+        opacity: 1;
+        pointer-events: auto;
+    }    
+
+    
+    .header-nav__link-item {
+        list-style: none;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+    }
+
+    .header-nav__link-item--close-icon-container {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        height: 2rem;
+        cursor: pointer;
+    }
+
+    .header-nav__close-icon {
+        height: 100%;
+    }
+
+    
+    .header-nav__link {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: var(--all-transitions);
+    }
+
+    .header-nav__link:hover {
+        color: var(--highlight-color);
+        border-bottom: 0.125rem solid var(--inverse-theme-color);
+    }
+
+
+
+
+
+
+    @media (min-width: 854px) {
+
+        .header {
+            background-color: transparent;
+        }
+        .header-nav__logo-container {
+            height: 7rem;
+        }
+        .header-nav__menu-icon-container,
+        .header-nav__link-item--close-icon-container {
+          display: none;
+        }
+
+      
+        .header-nav-container {
+          max-width: 1400px;
+          margin: auto;
+          padding: 0;
+        }
+      
+        .header-nav__link-list {
+          position: static;
+          flex-direction: row;
+          background-image: none;
+          opacity: 1;
+          width: auto;
+          pointer-events: auto;
+        }
+      
+        .header-nav__link--scroll {
+          color: var(--primary-theme-color);
+        }
+      
+        .header-nav__link--scroll:hover {
+          color: var(--secondary-theme-color);
+          border-bottom: 0.125rem solid var(--highlight-color);
+        }
+    }     
